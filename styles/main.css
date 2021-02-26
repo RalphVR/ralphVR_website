@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Exo');
+
+@font-face {
+    font-family: 'LeagueSpartan-Bold';
+    src: url(LeagueSpartan-Bold.otf) format("opentype");
+}
+
+body {
+    font-family: 'LeagueSpartan-Bold';
+    background-color: black;
+
+}
+nav {
+
+}
+footer {
+    background-color: black;
+    font-family: 'Exo', sans-serif;
+}
+h1 {
+    font-size: 8vh;
+}
+
+.navbar{
+  font-family: 'Exo', sans-serif;
+}
+.border-bottom {
+    border-color: #C8C642 !important;
+}
+
+.bkgd-color-blue {
+    background-color: #083340;
+}
+
+.bkgd-color-grey {
+    background-color: #262626;
+}
+
+.bkgd-color-glitch {
+    background-image: url("../images/glitch_repeating.jpg");
+}
+
+.nav-yellow {
+    background-color: #C8C642;
+}
+.nav-light {
+    background-color: #D8D8D8;
+}
+.nav-denim {
+
+}
+
+.text-yellow {
+    color: #C8C642
+}
+
+.text-light {
+    color: #D8D8D8
+}
+
+.text-green {
+    color: rgba(185, 255, 153, 1)
+}
+
+.options-input {
+  font-size: 1.5rem;
+  padding: 0rem .2rem;
+}
+
+.options-input.text-highlight {
+  color: #d39e00
+}
+
+.options-input:hover {
+  outline: #fff solid 1px;
+}
