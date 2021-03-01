@@ -14,72 +14,60 @@
                 <img class="img-fluid" src="./images/ralphvr_website_hero_v1.jpg">
             </div>
             <div class="">
-                <p>RalphVR is imagining new ways to connect loved ones together inside virtual reality to overcome isolation and loneliness. </p>
+                <img src="./images/ralphvr_website_logo.png">
+                <p>Reach out and touch your loved ones</p>
             </div>
             <div class="">
-                <p>Touch - Our revolutionary platform VRTogether overcomes distance to make your loved ones feel within arms reach. </p>
-                <p>Share - Spend time with loved ones doing what you love, talking walks, solving puzzles, or just chatting at a cafe.</p>
-                <p>Connect - Through touch and shared experiences your loved ones are next to you no matter the distance!</p>
+                <h2>Virtual Reality meets Embodied Computing</h2>
+                <h4>RalphVR is imagining new ways to connect loved ones together inside virtual reality to overcome isolation and loneliness. </h4>
+            </div>
+            <div class="">
+                <p>Touch - Our revolutionary VRTogether platform overcomes distance thorugh virtual embodiement. </p>
+                <p>Connect - Through touch and shared experiences your loved ones are within arms reach, no matter the distance!</p>
+                <p>Share - Spend time with loved ones doing what you love: whether talking walks or solving puzzles together, you will always feel close.</p>
             </div>
             <div class="container">
-                <div class="d-flex border-bottom pt-5 pb-5 mb-5">
-                    <h1 v-bind:class="textColor">RalphVR</h1>
-                    <h3 v-bind:class="textColor" class="ml-2">virtual reality game studio</h3>
-                </div>
                 <div id="section-games mt-5">
-                    <h2 v-bind:class="textColor" class="my-5">Games</h2>
+                    <h2 v-bind:class="textColor" class="my-5">Experiences we worked on</h2>
                     <div class="card mb-4">
-												<a href="http://www.daydreamblue.com/">
-                        	<img class="card-img" src="./images/banner_daydreamblue.jpg" alt=""/>
-												</a>
+                        <p>Healthcare Hero - KCTCS, Bitsource</p>
                     </div>
-										<div class="card mb-4">
-												<a href="https://store.steampowered.com/app/1124370/Traverse_The_Void/">
-                        	<img class="card-img" src="./images/banner_traversethevoid.jpg" alt=""/>
-												</a>
+                    <div class="card mb-4">
+						<a href="https://store.steampowered.com/app/1124370/Traverse_The_Void/">
+                            <img class="card-img" src="./images/banner_traversethevoid.jpg" alt=""/>
+						</a>
+                    </div>
+                    <div>
+						<p>Anthro Viewer 360 - UVA, Bitsource</p>
+                    </div>
+                    <div class="card mb-4">
+						<a href="http://www.daydreamblue.com/">
+                            <img class="card-img" src="./images/banner_daydreamblue.jpg" alt=""/>
+						</a>
+                    </div>
+					<div>
+						<p>Virtually Alice - Carnegie Center for Literacy and Learning</p>
                     </div>
                 </div>
-                <div id="section-about" class="my-5 pt-5 pb-5">
-                    <h2 v-bind:class="textColor">About</h2>
-                    <p v-bind:class="textColor">RalphVR, Inc. is a virtual reality studio founded in 2015 to develop virtual reality applications that afford new ways to: connect with one another, share new experiences together, and lift up our vulnerable through technology. Our first experience is Daydream Blue, which is available on GearVR, Oculus Rift, and Google Daydream. Currently we are hard at work on something very exicitng, with an incredibly talented group of folks--across many disciplines--at the University of Kentucky. We will have exciting announcements soon!</p>
+            </div>
+            <div class="container">
+                <div id="section-games mt-5">
+                    <h2 v-bind:class="textColor" class="my-5">Partners and Clients</h2>
+                    <div class="card mb-4">
+						<p>Thrive</p>
+                        <p>Bitsource</p>
+                        <p>University of Kentucky</p>
+                        <p>Carnegie Center for Literacy and Learning</p>
+                        <p>Living Arts and Science Center</p>
+                    </div>
                 </div>
             </div>
             <div id="section-copyright" class="text-right mb-1 mr-2">
-                <h5 v-bind:class="textColor">&copy RalphVR Inc, 2020</h5>
+                <h5 v-bind:class="textColor">&copy RalphVR Inc, 2021</h5>
+                <p>contact@ralphvr.com</p>
             </div>
             <footer class="text-light align-bottom">
-                <div class="container pb-5">
-                    <div class="row pt-5">
-                        <h3 class="p-1">Options</h3>
-                    </div>
-                    <div class="row pt-1">
-                        <div class="options-input">Color Palette</div>
-                        <div class="options-input"> [ </div>
-                        <div class="options-input" v-on:click="paletteOne" v-bind:class="{'text-highlight': pActive[0]}">1</div>
-                        <div class="options-input" v-on:click="paletteTwo" v-bind:class="{'text-highlight': pActive[1]}">2</div>
-                        <div class="options-input" v-on:click="paletteThree" v-bind:class="{'text-highlight': pActive[2]}">3</div>
-												<div class="options-input"> ] </div>
-                    </div>
-                    <!--<div class="row pt-1">
-                        <h6 class="p-1">Audio</h6>
-                        <h6 id="audio-on" class="p-1 text-secondary">On</h6>
-                        <h6 id="audio-off" class="p-1 text-warning">Off</h6>
-                    </div>
-                    <div class="row pt-1">
-                        <h6 class="p-1">Gif it up</h6>
-                        <h6 id="gif-on" class="p-1 text-secondary">On</h6>
-                        <h6 id="gif-off" class="p-1 text-warning">Off</h6>
-                    </div>-->
-                </div>
             </footer>
         </div>
-
-
-        <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> Development version -->
-				<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> <!--Production version-->
-				<script src="main.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 	</body>
 </html>
