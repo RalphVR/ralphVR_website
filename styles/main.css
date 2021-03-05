@@ -8,69 +8,88 @@
 body {
     font-family: 'LeagueSpartan-Bold';
     background-color: black;
-
-}
-nav {
-
-}
-footer {
-    background-color: black;
-    font-family: 'Exo', sans-serif;
-}
-h1 {
-    font-size: 8vh;
-}
-
-.navbar{
-  font-family: 'Exo', sans-serif;
-}
-.border-bottom {
-    border-color: #C8C642 !important;
-}
-
-.bkgd-color-blue {
-    background-color: #083340;
-}
-
-.bkgd-color-grey {
-    background-color: #262626;
-}
-
-.bkgd-color-glitch {
-    background-image: url("../images/glitch_repeating.jpg");
-}
-
-.nav-yellow {
-    background-color: #C8C642;
-}
-.nav-light {
-    background-color: #D8D8D8;
-}
-.nav-denim {
+    margin: 0px;
+    padding: 0px;
 
 }
 
-.text-yellow {
-    color: #C8C642
+h2{
+  color: white;
+  font-size: 2.2em;
+  padding: 16px;
 }
 
-.text-light {
-    color: #D8D8D8
+.hero {
+  background-image: url('../images/ralphvr_website_hero_v1.jpg');
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.text-green {
-    color: rgba(185, 255, 153, 1)
+.container{
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+
 }
 
-.options-input {
-  font-size: 1.5rem;
-  padding: 0rem .2rem;
+.center-members {
+  justify-content: space-around;
+}
+.column-members {
+  flex-direction: column;
 }
 
-.options-input.text-highlight {
-  color: #d39e00
+.call {
+  margin-top: 20px;
+  background-color: white;
+  width: 20%;
+  padding: 30px;
+  border-radius: 5px;
 }
 
-.options-input:hover {
-  outline: #fff solid 1px;
+.call .title {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.call .text {
+  margin-top:20px;
+  text-align: center;
+}
+
+.partner {
+  width: 150px;
+}
+.partner p {
+  color: white;
+  text-align: center;
+}
+
+.project-card{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.project-card .content{
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .container{
+    padding: 8px;
+  }
+  h2 {
+    padding: 8px;
+  }
+  .call {
+    width: 90%;
+  }
+  .project-card{
+    flex-direction: column;
+  }
 }
