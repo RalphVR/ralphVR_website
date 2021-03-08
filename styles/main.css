@@ -5,13 +5,19 @@
     src: url(LeagueSpartan-Bold.otf) format("opentype");
 }
 
+
+html {
+  margin: 0px;
+  padding: 0px;
+}
 body {
     font-family: 'LeagueSpartan-Bold';
     background-color: black;
     margin: 0px;
     padding: 0px;
-
 }
+
+html, body {width: auto!important; overflow-x: hidden!important}
 
 h2{
   color: white;
@@ -22,10 +28,58 @@ h2{
 .hero {
   background-image: url('../images/ralphvr_website_hero_v1.jpg');
   width: 100%;
-  height: 600px;
+  height: 837px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero h2 {
+  margin: 0px;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 2.8em;
+  width: 100%;
+  letter-spacing: 2px;
+}
+
+.hero h4 {
+  font-family: 'LeagueSpartan-Bold', 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  max-width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.hero hr {
+  width: 45%;
+  border: 1px solid white;
+}
+
+.mast-container {
+  margin-bottom: 4em;
+}
+
+.logo-container {
+  background-color: #455971;
+  min-height: 100px;
+  padding-top: 50px;
+  font-size: 1.5em;
+  color: #c9c641;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo-container p {
+  padding: 0px;
+  margin: 0.7em 0 0 0.5em;
 }
 
 .container{
@@ -79,6 +133,14 @@ h2{
   color: white;
 }
 
+.mast-container {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
 @media only screen and (max-width: 600px) {
   .container{
     padding: 8px;
@@ -89,7 +151,41 @@ h2{
   .call {
     width: 90%;
   }
-  .project-card{
+  .project-card {
     flex-direction: column;
+  }
+
+  .logo-container {
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .logo-container img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero {
+    height: 700px;
+    background-position:32% 75%;
+  }
+
+  .hero h2 {
+    font-size: 2.1em;
+    margin-bottom: 7em;
+  }
+
+  .hero hr {
+    display: none;
+  }
+
+  .hero h4 {
+    font-size: 1.4em;
+  }
+
+  .mast-container {
+    margin-bottom: 2em;
   }
 }
