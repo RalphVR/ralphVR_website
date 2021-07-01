@@ -139,6 +139,7 @@ h2{
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding-left: 150px;
 }
 
 
@@ -191,6 +192,15 @@ h2{
   }
 
   .mast-container {
+    color:#6d5794;
     margin-bottom: 15em;
+    padding-left: 0px;
   }
+
+  .mast-container h2{
+    color:#6d5794;
+  }
+
+
+
 }
