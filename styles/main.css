@@ -101,7 +101,8 @@ h2{
   background-color: white;
   width: 20%;
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 20px;
+  text-align: center;
 }
 
 .call .title {
