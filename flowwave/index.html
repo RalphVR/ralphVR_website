@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Flow Wave | Chill, retro, flow.</title>
+  <meta name="description" content="Flow Wave is a hands-only mixed reality runner for Meta Quest. A portal opens in your room onto a vaporwave sunset. Throw a paper plane through it, then fly it with your hand.">
+  <meta name="theme-color" content="#141A33">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Social cards. og:image / og:url must be absolute: they assume ralphvr.com/flowwave/ (README → Deploy). -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Flow Wave">
+  <meta property="og:description" content="A hands-only mixed reality runner for Meta Quest. Throw a paper plane through a portal in your room, then fly it with your hand.">
+  <meta property="og:url" content="https://ralphvr.com/flowwave/">
+  <meta property="og:image" content="https://ralphvr.com/flowwave/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/Comfortaa-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Offside&amp;display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="js/site.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Flow Wave",
+    "description": "A hands-only mixed reality runner for Meta Quest. Throw a paper plane through a portal in your room, then fly it with your hand.",
+    "image": "https://ralphvr.com/flowwave/assets/img/og.jpg",
+    "url": "https://ralphvr.com/flowwave/",
+    "gamePlatform": "Meta Quest",
+    "genre": ["Arcade", "Casual", "Flight"],
+    "playMode": "SinglePlayer"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#how">Skip to content</a>
+
+  <!-- ============================== HERO ============================== -->
+  <header class="hero" id="top">
+    <div class="sky" aria-hidden="true">
+      <div class="stars"></div>
+      <div class="sun-glow"></div>
+      <svg class="sun" viewBox="-120 -60 240 120" focusable="false">
+        <defs>
+          <linearGradient id="sunFill" x1="0" y1="-50" x2="0" y2="50" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFF08A"/>
+            <stop offset="0.45" stop-color="#FFC98A"/>
+            <stop offset="1" stop-color="#FF6FB4"/>
+          </linearGradient>
+          <mask id="sunStripes" maskUnits="userSpaceOnUse" x="-60" y="-60" width="120" height="120">
+            <rect x="-60" y="-60" width="120" height="120" fill="#fff"/>
+            <rect x="-60" y="2" width="120" height="0.8" fill="#000"/>
+            <rect x="-60" y="10" width="120" height="1.6" fill="#000"/>
+            <rect x="-60" y="18" width="120" height="2.6" fill="#000"/>
+            <rect x="-60" y="26.5" width="120" height="3.6" fill="#000"/>
+            <rect x="-60" y="35" width="120" height="4.8" fill="#000"/>
+            <rect x="-60" y="44" width="120" height="7" fill="#000"/>
+          </mask>
+          <clipPath id="ringBack"><rect x="-120" y="-60" width="240" height="60"/></clipPath>
+          <clipPath id="ringFront"><rect x="-120" y="0" width="240" height="60"/></clipPath>
+          <filter id="ringGlow" x="-20%" y="-200%" width="140%" height="500%">
+            <feGaussianBlur stdDeviation="1.6" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <g transform="rotate(4)" filter="url(#ringGlow)">
+          <ellipse clip-path="url(#ringBack)" class="ring" rx="104" ry="15" fill="none"/>
+        </g>
+        <circle r="50" fill="url(#sunFill)" mask="url(#sunStripes)"/>
+        <g transform="rotate(4)" filter="url(#ringGlow)">
+          <ellipse clip-path="url(#ringFront)" class="ring" rx="104" ry="15" fill="none"/>
+        </g>
+      </svg>
+      <img class="spire spire-l" src="assets/img/spire.webp" alt="" width="160" height="669">
+      <img class="spire spire-r" src="assets/img/spire.webp" alt="" width="160" height="669">
+      <img class="cloud cloud-1" src="assets/img/cloud.webp" alt="" width="640" height="443">
+      <img class="cloud cloud-2" src="assets/img/cloud.webp" alt="" width="640" height="443">
+      <img class="cloud cloud-3" src="assets/img/cloud.webp" alt="" width="640" height="443">
+      <div class="horizon"></div>
+      <canvas class="floor"></canvas>
+      <img class="plane" src="assets/img/plane-hero.webp" alt="" width="896" height="340">
+      <div class="scanlines"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="wordmark wordmark--hero"><span class="wordmark__ink" aria-hidden="true">Flow Wave</span><span class="wordmark__fill">Flow Wave</span></h1>
+      <p class="tagline">Chill, retro, flow.</p>
+      <div class="cta-row">
+        <!-- STORE LINK: replace the href on every .store-link (README → Before you publish). -->
+        <a class="store-btn store-link" href="https://www.meta.com/experiences/search/?q=Flow%20Wave">
+          <span class="store-btn__small">Get it on</span>
+          <span class="store-btn__big">Meta Quest</span>
+          <svg class="store-btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="ghost-btn" href="#trailer" data-play-trailer>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          Watch the trailer
+        </a>
+      </div>
+      <ul class="chips" aria-label="At a glance">
+        <li>Hands only</li>
+        <li>Mixed reality</li>
+        <li>Sit or stand</li>
+      </ul>
+    </div>
+
+    <a class="scroll-cue" href="#how" aria-label="Scroll to how it plays"><span></span></a>
+  </header>
+
+  <svg class="wave-rule" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 1200 48">
+    <defs>
+      <pattern id="waves" width="120" height="48" patternUnits="userSpaceOnUse">
+        <path d="M0 12 Q30 4 60 12 T120 12" stroke="#FFB26B"/>
+        <path d="M0 18 Q30 10 60 18 T120 18" stroke="#FF8066"/>
+        <path d="M0 24 Q30 16 60 24 T120 24" stroke="#E86BD6"/>
+        <path d="M0 30 Q30 22 60 30 T120 30" stroke="#7D8CFF"/>
+        <path d="M0 36 Q30 28 60 36 T120 36" stroke="#63B8FF"/>
+        <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="120 0" dur="2s" repeatCount="indefinite"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="48" fill="url(#waves)"/>
+  </svg>
+
+  <main>
+    <!-- ============================== HOW IT PLAYS ============================== -->
+    <section class="section how" id="how">
+      <div class="wrap">
+        <p class="eyebrow reveal">How it plays</p>
+        <h2 class="reveal">Remember flying your hand out of a car window?</h2>
+        <p class="lede reveal">Flow Wave turns that feeling into a game: a hands-only mixed reality runner where a portal opens in your room onto a vaporwave sunset. No controllers, no buttons, just your hand and the wind.</p>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <div class="step__pic"><img src="assets/img/howto-pinch.webp" alt="A hand pinches a paper plane from below, in front of a glowing portal" width="800" height="600" loading="lazy"></div>
+            <span class="step__num">01</span>
+            <h3>Pinch</h3>
+            <p>A paper plane hovers in front of you. Pinch its keel to pick it up.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step__pic"><img src="assets/img/howto-throw.webp" alt="A hand throws the paper plane into the portal" width="800" height="600" loading="lazy"></div>
+            <span class="step__num">02</span>
+            <h3>Throw</h3>
+            <p>Toss it into the portal that tears open in your room.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step__pic step__pic--swap">
+              <img src="assets/img/howto-roll.webp" alt="Rolling the hand slides the plane sideways" width="800" height="600" loading="lazy">
+              <img src="assets/img/howto-climb.webp" alt="Lifting the fingertips makes the plane climb" width="800" height="600" loading="lazy">
+            </div>
+            <span class="step__num">03</span>
+            <h3>Fly</h3>
+            <p>Roll your hand like a wing to slide. Lift your fingertips to climb.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================== TRAILER ============================== -->
+    <section class="section trailer" id="trailer">
+      <div class="wrap">
+        <p class="eyebrow reveal">The world comes to you</p>
+        <h2 class="reveal">Slip through the neon.</h2>
+        <p class="lede reveal">Neon blocks, drifting pillars and laser grids pour out of the portal towards you. Grab coins, fly through energy rings to keep gliding, and keep going.</p>
+
+        <div class="portal reveal">
+          <div class="portal__window">
+            <video id="trailer-video" controls playsinline preload="none" poster="assets/img/trailer-poster.webp" width="1280" height="720">
+              <source src="assets/video/flowwave-trailer.mp4" type="video/mp4">
+            </video>
+            <button class="play" type="button" aria-label="Play the trailer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <svg class="portal__rift" aria-hidden="true"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FEATURES ============================== -->
+    <section class="section features" id="features">
+      <div class="wrap">
+        <article class="feature reveal">
+          <div class="feature__art feature__art--gate">
+            <img src="assets/img/feat-gate.webp" alt="A gold flow gate reading FLOW x5" width="640" height="658" loading="lazy">
+          </div>
+          <div class="feature__text">
+            <p class="eyebrow">Find your flow</p>
+            <h2>Everything moves to the music.</h2>
+            <p>The blocks, the rings, the grid, even the portal's border pulse on the beat. Fly through gold flow gates at distance milestones to raise your coin multiplier, and your speed. Crash, and the music picks up where you left off.</p>
+          </div>
+        </article>
+
+        <article class="feature feature--flip reveal">
+          <div class="feature__art feature__art--gems">
+            <img class="gem gem-3" src="assets/img/gem-x3.webp" alt="x3 gem" width="360" height="360" loading="lazy">
+            <img class="gem gem-5" src="assets/img/gem-x5.webp" alt="x5 gem" width="360" height="360" loading="lazy">
+            <img class="gem gem-10" src="assets/img/gem-x10.webp" alt="x10 gem" width="360" height="360" loading="lazy">
+          </div>
+          <div class="feature__text">
+            <p class="eyebrow">Risk it</p>
+            <h2>x3. x5. x10.</h2>
+            <p>Multiplier gems pay out more coins, if you can handle the extra speed. Crumple against the neon, and the multiplier is gone.</p>
+          </div>
+        </article>
+
+        <article class="feature fleet reveal">
+          <div class="feature__text fleet__text">
+            <p class="eyebrow">Build your fleet</p>
+            <h2>Six planes. One is gold.</h2>
+            <p>Spend coins between flights on eight stats for every plane, then unlock the next. The last one, the Golden plane, never runs out of glide.</p>
+          </div>
+          <ul class="fleet__planes">
+            <li><img src="assets/img/plane-dart.webp" alt="" width="560" height="404" loading="lazy"><span>Dart</span></li>
+            <li><img src="assets/img/plane-glider.webp" alt="" width="560" height="343" loading="lazy"><span>Glider</span></li>
+            <li><img src="assets/img/plane-swallow.webp" alt="" width="560" height="417" loading="lazy"><span>Swallow</span></li>
+            <li><img src="assets/img/plane-stunt.webp" alt="" width="560" height="435" loading="lazy"><span>Stunt</span></li>
+            <li><img src="assets/img/plane-condor.webp" alt="" width="560" height="417" loading="lazy"><span>Condor</span></li>
+            <li class="is-gold"><img src="assets/img/plane-golden.webp" alt="" width="560" height="467" loading="lazy"><span>Golden</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================== SCREENSHOTS ============================== -->
+    <section class="section shots" id="screenshots" aria-label="Screenshots">
+      <div class="wrap">
+        <p class="eyebrow reveal">Through the portal</p>
+      </div>
+      <ul class="shots__strip">
+        <li><button type="button" data-full="assets/img/shot-1.webp"><img src="assets/img/shot-1-sm.webp" alt="The Condor gliding low over pink clouds towards the striped setting sun" width="720" height="405" loading="lazy"></button></li>
+        <li><button type="button" data-full="assets/img/shot-2.webp"><img src="assets/img/shot-2-sm.webp" alt="The Dart plane flying through a gold FLOW x3 gate at 250 metres" width="720" height="405" loading="lazy"></button></li>
+        <li><button type="button" data-full="assets/img/shot-3.webp"><img src="assets/img/shot-3-sm.webp" alt="The Stunt plane bursting through gold rings past crossing laser lines" width="720" height="405" loading="lazy"></button></li>
+        <li><button type="button" data-full="assets/img/shot-4.webp"><img src="assets/img/shot-4-sm.webp" alt="The Glider grabbing a x3 multiplier gem under a neon block" width="720" height="405" loading="lazy"></button></li>
+        <li><button type="button" data-full="assets/img/shot-5.webp"><img src="assets/img/shot-5-sm.webp" alt="The Golden plane lining up a gap between neon pillars" width="720" height="405" loading="lazy"></button></li>
+      </ul>
+    </section>
+
+    <!-- ============================== FINAL CTA ============================== -->
+    <section class="section finale" id="get">
+      <div class="wrap finale__inner">
+        <h2 class="reveal">Open the portal.</h2>
+        <p class="lede reveal">Flow Wave is on the Meta Horizon Store for Meta Quest.</p>
+        <a class="store-btn store-link reveal" href="https://www.meta.com/experiences/search/?q=Flow%20Wave">
+          <span class="store-btn__small">Get it on</span>
+          <span class="store-btn__big">Meta Quest</span>
+          <svg class="store-btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <ul class="specs reveal" aria-label="Details">
+          <li><b>Controls</b>Hand tracking only</li>
+          <li><b>Play</b>Sitting or standing</li>
+          <li><b>Space</b>Stationary, no room scan</li>
+          <li><b>Players</b>Single player</li>
+        </ul>
+      </div>
+      <div class="finale__scene" aria-hidden="true">
+        <div class="finale__sun"></div>
+        <div class="finale__floor"><div class="finale__grid"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="footer__logo wordmark" href="#top"><span class="wordmark__ink" aria-hidden="true">Flow Wave</span><span class="wordmark__fill">Flow Wave</span></a>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="privacy.html">Privacy policy</a>
+        <a class="store-link" href="https://www.meta.com/experiences/search/?q=Flow%20Wave">Meta Horizon Store</a>
+      </nav>
+      <p class="footer__legal">&copy; VRTogether. Meta and Meta Quest are trademarks of Meta Platforms, Inc.</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Screenshot">
+    <img alt="">
+    <button class="lightbox__nav lightbox__prev" type="button" aria-label="Previous screenshot">&lsaquo;</button>
+    <button class="lightbox__nav lightbox__next" type="button" aria-label="Next screenshot">&rsaquo;</button>
+    <button class="lightbox__close" type="button" aria-label="Close">&times;</button>
+  </dialog>
+</body>
+</html>
