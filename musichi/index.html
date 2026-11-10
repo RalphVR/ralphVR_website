@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Musichi | Your music, made of light</title>
+  <meta name="description" content="Musichi is a mixed reality experience for Meta Quest. Play any music in your room and it comes alive as light you can move with: lines to trace, arcs to swipe, orbs to push, and the cosmos opening through your walls.">
+  <meta name="theme-color" content="#07060d">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Social cards. og:image / og:url must be absolute: they assume ralphvr.com/musichi/ (README → Deploy). -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Musichi">
+  <meta property="og:description" content="Play any music in your room and watch it come alive. A calm mixed reality experience for Meta Quest: hands only, bring your own music.">
+  <meta property="og:url" content="https://ralphvr.com/musichi/">
+  <meta property="og:image" content="https://ralphvr.com/musichi/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/Comfortaa-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/img/title.webp" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="js/sound.js" defer></script>
+  <script src="js/site.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Musichi",
+    "description": "A mixed reality experience for Meta Quest that turns the music in your room into light you can move with.",
+    "image": "https://ralphvr.com/musichi/assets/img/og.jpg",
+    "url": "https://ralphvr.com/musichi/",
+    "operatingSystem": "Meta Horizon OS",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Music"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#overture">Skip to content</a>
+
+  <!-- ============================== PRELUDE ============================== -->
+  <header class="prelude" id="top">
+    <p class="mark mark--top">Prelude <i>adagio</i></p>
+
+    <h1 class="title">
+      <img class="title__img" src="assets/img/title.webp" alt="Musichi" width="1400" height="399">
+    </h1>
+
+    <!-- The orb under the title: in the app, a fist in it begins. Here a press does (the canvas draws it). -->
+    <a class="begin" href="#overture" aria-label="Begin"><span class="begin__label" aria-hidden="true">press to begin</span></a>
+
+    <p class="tagline">Your music, made of light.</p>
+    <p class="prelude__lede">Play any song in your room. Musichi listens, and the room fills with light you can move with.</p>
+
+    <div class="cta-row">
+      <!-- STORE LINK: until the Meta Horizon Store page is live this is a label, not a link. When it is, replace this
+           span (and the one in the coda) with:
+           <a class="store-btn store-link" href="https://www.meta.com/experiences/musichi/1134025202507136/">…</a>
+           keeping the inner spans (README → Before you publish). -->
+      <span class="store-btn store-btn--soon">
+        <span class="store-btn__small">Coming soon to</span>
+        <span class="store-btn__big">Meta Quest</span>
+      </span>
+      <a class="ghost-btn" href="#film" data-play-trailer>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+        Watch the trailer
+      </a>
+    </div>
+
+    <p class="invite">
+      This page is a small Musichi too. Play some music near you and
+      <button class="inline-btn" type="button" data-listen>let it listen</button>,
+      or <button class="inline-btn" type="button" data-song>play it a song</button>.
+      <span class="invite__small">The sound stays in your browser: nothing is recorded or sent.</span>
+    </p>
+
+    <a class="scroll-cue" href="#overture" aria-label="Scroll down"><span></span></a>
+  </header>
+
+  <!-- ============================== OVERTURE ============================== -->
+  <main>
+    <section class="overture" id="overture">
+      <div class="staff lit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="wrap">
+        <p class="mark">Overture <i>con moto</i></p>
+        <p class="verse lit">Play a song from your phone, a speaker, anything that makes sound.</p>
+        <p class="verse lit">Musichi listens through your headset&rsquo;s microphone and fills your room with dust that glows wherever the music&rsquo;s waves pass.</p>
+        <p class="verse verse--em lit">Every beat washes through the room around you.</p>
+      </div>
+
+      <div class="film wrap" id="film">
+        <div class="film__frame">
+          <video id="trailer-video" controls playsinline preload="none" poster="assets/img/trailer-poster.webp" width="1280" height="720">
+            <source src="assets/video/musichi-trailer.mp4" type="video/mp4">
+          </video>
+          <button class="play" type="button" aria-label="Play the trailer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <p class="film__caption">The trailer: 45 seconds of Musichi, from the app itself.</p>
+      </div>
+
+      <div class="frames" aria-label="Frames from Musichi">
+        <ul class="frames__strip">
+          <li><button type="button" data-full="assets/img/shot-2.webp"><img src="assets/img/shot-2-sm.webp" alt="A long line of light traced across a living room, the hand at its end full of glowing particles" width="800" height="450" loading="lazy"></button></li>
+          <li><button type="button" data-full="assets/img/shot-3.webp"><img src="assets/img/shot-3-sm.webp" alt="Three arcs of light to swipe, each narrow where it starts and wide where it ends" width="800" height="450" loading="lazy"></button></li>
+          <li><button type="button" data-full="assets/img/shot-4.webp"><img src="assets/img/shot-4-sm.webp" alt="Glowing orbs in white rings of light, one popping as the hand pushes another" width="800" height="450" loading="lazy"></button></li>
+          <li><button type="button" data-full="assets/img/shot-5.webp"><img src="assets/img/shot-5-sm.webp" alt="The end of a line bursting into streaks of light in front of the television" width="800" height="450" loading="lazy"></button></li>
+          <li><button type="button" data-full="assets/img/shot-1.webp"><img src="assets/img/shot-1-sm.webp" alt="A spiral galaxy open in the living room wall, dust glowing all around" width="800" height="450" loading="lazy"></button></li>
+        </ul>
+        <p class="frames__note">Frames from the app, over a stand-in room. In the headset it&rsquo;s your own room, through passthrough.</p>
+      </div>
+    </section>
+
+    <!-- ============================== I. TRACE ============================== -->
+    <section class="movement" id="trace">
+      <div class="movement__text">
+        <p class="mark">Movement I <i>legato</i></p>
+        <h2 class="lit">Trace the light.</h2>
+        <p>One movement at a time appears in front of you. Lines of energy coil around you: follow one with your hand from its start to its end, and your hand gathers more and more particles as it goes. At the end, everything bursts.</p>
+        <p class="hint"><span class="hint__dot" aria-hidden="true"></span><span data-hint-fine="Put your cursor in the ring, then follow the line." data-hint-touch="Touch the ring, then follow the line with your finger.">Follow the line.</span></p>
+      </div>
+      <div class="stage" data-stage="line">
+        <img class="stage__still" src="assets/img/shot-2-sm.webp" alt="" width="800" height="450" loading="lazy">
+      </div>
+    </section>
+
+    <!-- ============================== II. SWIPE ============================== -->
+    <section class="movement movement--flip" id="swipe">
+      <div class="movement__text">
+        <p class="mark">Movement II <i>allegretto</i></p>
+        <h2 class="lit">Swipe the arcs.</h2>
+        <p>One to three at once, each in a single smooth movement: narrow where it starts, wide where it ends. Each one rings as it goes.</p>
+        <p class="hint"><span class="hint__dot" aria-hidden="true"></span><span data-hint-fine="Sweep across each arc from its narrow end." data-hint-touch="Swipe each arc from its narrow end.">Swipe each arc.</span></p>
+      </div>
+      <div class="stage" data-stage="arcs">
+        <img class="stage__still" src="assets/img/shot-3-sm.webp" alt="" width="800" height="450" loading="lazy">
+      </div>
+    </section>
+
+    <!-- ============================== III. PUSH ============================== -->
+    <section class="movement" id="push">
+      <div class="movement__text">
+        <p class="mark">Movement III <i>staccato</i></p>
+        <h2 class="lit">Push the orbs.</h2>
+        <p>Glowing orbs in rings of light. Push one away with an open hand and it pops, with a rush of air. Your hands pulse with the beat, and so do the lines of light.</p>
+        <p class="hint"><span class="hint__dot" aria-hidden="true"></span><span data-hint-fine="Flick through an orb, or click it." data-hint-touch="Tap an orb.">Push an orb.</span></p>
+      </div>
+      <div class="stage" data-stage="orbs">
+        <img class="stage__still" src="assets/img/shot-4-sm.webp" alt="" width="800" height="450" loading="lazy">
+      </div>
+    </section>
+
+    <!-- ============================== INTERLUDE ============================== -->
+    <section class="interlude" id="tacet">
+      <div class="staff lit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="wrap">
+        <p class="mark">Interlude <i>tacet</i></p>
+        <p class="verse lit">Then, for a while, nothing to do.</p>
+        <p class="verse verse--quiet">Just the music, and the light.</p>
+      </div>
+    </section>
+
+    <!-- ============================== IV. THE COSMOS ============================== -->
+    <section class="movement movement--wide" id="cosmos">
+      <div class="movement__text">
+        <p class="mark">Movement IV <i>lontano</i></p>
+        <h2 class="lit">Your room, revealed.</h2>
+        <p>Particles thrown out by your movements glow on your walls where they land. Stay in the flow with the music and, more and more often, the particles map a patch of your room, and the cosmos opens through it: galaxies, nebulae and stars, far beyond your walls.</p>
+        <p class="hint"><span class="hint__dot" aria-hidden="true"></span><span data-hint-fine="Move with the music over the room. The wall opens." data-hint-touch="Touch the room and move with the music. The wall opens.">The wall opens.</span></p>
+      </div>
+      <div class="stage stage--room" data-stage="cosmos">
+        <img class="stage__room" src="assets/img/room.webp" alt="A living room in the evening, a television on the wall above a low cabinet, a red chair in the corner" width="1600" height="900" loading="lazy">
+        <img class="stage__still" src="assets/img/shot-1-sm.webp" alt="" width="800" height="450" loading="lazy">
+      </div>
+    </section>
+
+    <!-- ============================== CODA ============================== -->
+    <section class="coda" id="get">
+      <div class="coda__sky" aria-hidden="true"></div>
+      <div class="wrap coda__inner">
+        <p class="mark">Coda <i>dolce</i></p>
+        <h2 class="lit">Calm by design.</h2>
+        <p class="lede">No score, no timer, no way to fail. Gentle natural sounds sit under your music:
+          <button class="sound-word" type="button" data-sound="bowl">a singing bowl</button>,
+          <button class="sound-word" type="button" data-sound="chimes">chimes</button> and
+          <button class="sound-word" type="button" data-sound="air">soft rushes of air</button>.</p>
+
+        <ul class="specs" aria-label="Details">
+          <li><b>Music</b>Bring your own: any song, any device</li>
+          <li><b>Hands</b>Hand tracking only, no controllers</li>
+          <li><b>Space</b>Your room, with passthrough</li>
+          <li><b>Online</b>Not needed: works offline</li>
+        </ul>
+
+        <p class="coda__call lit">Bring your own music.</p>
+        <span class="store-btn store-btn--soon">
+          <span class="store-btn__small">Coming soon to</span>
+          <span class="store-btn__big">Meta Quest</span>
+        </span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="footer__logo" href="#top"><img src="assets/img/title.webp" alt="Musichi" width="1400" height="399" loading="lazy"></a>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="../flowwave/">Also from us: Flow Wave</a>
+      </nav>
+      <p class="footer__legal">&copy; VRTogether. Meta and Meta Quest are trademarks of Meta Platforms, Inc.</p>
+    </div>
+  </footer>
+
+  <!-- The page's ear: shown by the script when the browser can make sound. -->
+  <div class="ear" role="group" aria-label="Music for this page" hidden>
+    <button class="ear__btn" type="button" data-listen aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0v-5a3 3 0 0 1 3-3zM6.5 11a5.5 5.5 0 0 0 11 0M12 16.5v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span class="ear__label">Listen</span>
+    </button>
+    <button class="ear__btn" type="button" data-song aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.5V6l10-2v11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.8" cy="17.5" r="2.3" fill="currentColor"/><circle cx="16.8" cy="15.5" r="2.3" fill="currentColor"/></svg>
+      <span class="ear__label">Play a song</span>
+    </button>
+    <button class="ear__btn ear__btn--icon" type="button" data-sfx aria-pressed="false" aria-label="Sound effects">
+      <svg class="ear__sfx-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M16 9.5l5 5M21 9.5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg class="ear__sfx-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <span class="ear__meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="ear__status" role="status" aria-live="polite"></span>
+  </div>
+
+  <dialog class="lightbox" aria-label="Frame from Musichi">
+    <img alt="">
+    <button class="lightbox__nav lightbox__prev" type="button" aria-label="Previous frame">&lsaquo;</button>
+    <button class="lightbox__nav lightbox__next" type="button" aria-label="Next frame">&rsaquo;</button>
+    <button class="lightbox__close" type="button" aria-label="Close">&times;</button>
+  </dialog>
+</body>
+</html>
