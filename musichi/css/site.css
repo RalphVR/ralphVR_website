@@ -483,6 +483,8 @@ a.store-btn:hover { border-color: #fff; box-shadow: 0 0 50px rgba(185, 166, 255,
 .doc h1 { margin: 0 0 1.4rem; font: 300 clamp(2.6rem, 6vw, 4rem)/1.05 var(--serif); }
 .doc h2 { margin: 2.6rem 0 0.8rem; font-size: clamp(1.7rem, 3.4vw, 2.2rem); }
 .doc h2::first-letter { font-style: normal; }
+.doc h3 { margin: 2rem 0 0.6rem; font: 400 clamp(1.3rem, 2.4vw, 1.6rem)/1.25 var(--serif); }
+.doc ol { padding-left: 1.4em; }
 .doc p, .doc li { color: var(--dim); }
 .doc strong { color: var(--dust); font-weight: 700; }
 .doc ul { padding-left: 1.2em; }
