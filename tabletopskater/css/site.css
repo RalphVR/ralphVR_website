@@ -1,0 +1,300 @@
+/* Tabletop Skater's site. The look is the game's (PopStyle.cs): flat cadmium yellow, poster red and teal with black
+   ink on cream, hard offset shadows, slanted banners, halftone dots and condensed slanted capitals, all lying on the
+   key art's wood. Fonts are the game's: Oswald and JetBrains Mono (SIL OFL, bundled with their licences). */
+
+@font-face { font-family: "Oswald"; src: url("../assets/fonts/Oswald.ttf") format("truetype"); font-weight: 200 700; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("../assets/fonts/JetBrainsMono-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+
+:root {
+  --ink: #121212;
+  --cream: #FBF6EA;
+  --yellow: #F7C21C;
+  --red: #E3302A;
+  --teal: #2E9CB3;
+  --teal-lt: #5CC4D8;
+  --wood: #3A2212;
+  --shadow: 6px 6px 0 var(--ink);
+  --display: "Oswald", "Arial Narrow", Impact, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, "Courier New", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  color: var(--cream);
+  font: 400 16px/1.6 var(--mono);
+  /* The wood is the picture over its own mirror image, so it repeats down the page without a seam. */
+  background: var(--wood) top center / max(100%, 900px) auto repeat-y;
+  background-image: linear-gradient(rgba(24, 12, 4, .3), rgba(24, 12, 4, .3)), url("../assets/img/wood.webp");
+  overflow-x: hidden;
+}
+img, video { max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+.skip { position: absolute; left: -999px; top: 0; z-index: 20; background: var(--yellow); color: var(--ink); padding: .5rem 1rem; }
+.skip:focus { left: .5rem; top: .5rem; }
+.wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+/* ---------- the pop pieces ---------- */
+.tag {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  font: 600 .95rem/1 var(--display);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: .5em 1em .55em;
+  transform: skewX(-10deg);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, .4);
+}
+.tag--red { background: var(--red); }
+
+.card {
+  position: relative;
+  background: var(--cream);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+}
+.card--yellow { background: var(--yellow); }
+.card--ink { background: var(--ink); color: var(--cream); box-shadow: 6px 6px 0 var(--yellow); }
+
+h2 {
+  font: italic 700 clamp(2.3rem, 6.4vw, 4.4rem)/1.02 var(--display);
+  text-transform: uppercase;
+  letter-spacing: .01em;
+  color: var(--cream);
+  text-shadow: 4px 4px 0 var(--ink);
+  max-width: 16ch;
+}
+h3 { font: italic 700 1.55rem/1.05 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.eyebrow { margin-bottom: 1rem; }
+.lede { max-width: 60ch; margin-top: 1.1rem; font-size: 1.02rem; text-shadow: 1px 1px 0 rgba(0, 0, 0, .7); }
+.section { position: relative; padding: clamp(3.5rem, 9vw, 7rem) 0; }
+
+/* Things come up into place as they scroll in. `translate` and `rotate` are their own properties, so a card's tilt
+   and its entrance don't fight over `transform`. */
+.js .reveal { opacity: 0; translate: 0 22px; transition: opacity .5s ease, translate .5s cubic-bezier(.2, .8, .2, 1); }
+.js .reveal.is-in { opacity: 1; translate: 0 0; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; grid-template-rows: 1fr auto; overflow: hidden; }
+.hero__stickers { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.sticker {
+  position: absolute;
+  width: var(--w, 120px);
+  height: auto;
+  translate: -50% -50%;
+  rotate: var(--r, 0deg);
+  filter: drop-shadow(0 3px 2px rgba(0, 0, 0, .45));
+  transition: opacity .5s ease;
+}
+.sticker.is-new { animation: slap .22s cubic-bezier(.3, 1.4, .5, 1) both; }
+.sticker.is-leaving { opacity: 0; }
+@keyframes slap { from { opacity: 0; scale: 1.9; } 60% { opacity: 1; scale: .93; } to { scale: 1; } }
+
+.hero__content { position: relative; z-index: 2; align-self: center; text-align: center; padding: clamp(2.2rem, 6vh, 5rem) 1.25rem 1.2rem; }
+.hero__title { rotate: -2deg; }
+.hero__title img { display: block; width: min(560px, 80vw, 50vh); margin-inline: auto; filter: drop-shadow(0 10px 12px rgba(0, 0, 0, .5)); }
+.hero__tags { margin-top: .6rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .15rem .1rem; }
+.hero__tags .tag { font-size: clamp(1.05rem, 3.2vw, 1.6rem); font-weight: 700; }
+.hero__sub { margin: 1.1rem auto 0; max-width: 40ch; font-size: 1.02rem; text-shadow: 2px 2px 0 var(--ink); }
+
+.cta-row { margin-top: 1.3rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.1rem 1.4rem; }
+.store-btn {
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  background: var(--red); color: var(--cream);
+  border: 3px solid var(--ink); box-shadow: var(--shadow);
+  padding: .55rem 1.5rem .7rem; transform: skewX(-8deg);
+  text-decoration: none; line-height: 1.05;
+  transition: translate .12s ease, box-shadow .12s ease;
+}
+.store-btn__small { font: 400 .72rem/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.store-btn__big { font: italic 700 1.8rem/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+a.store-btn:hover { translate: 3px 3px; box-shadow: 3px 3px 0 var(--ink); }
+.ghost-btn {
+  display: inline-flex; align-items: center; gap: .55rem;
+  background: var(--cream); color: var(--ink);
+  border: 3px solid var(--ink); box-shadow: var(--shadow);
+  padding: .75rem 1.2rem; transform: skewX(-8deg);
+  font: italic 700 1.15rem/1 var(--display); text-transform: uppercase; letter-spacing: .04em; text-decoration: none;
+  transition: translate .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.ghost-btn svg { width: 1.2rem; height: 1.2rem; }
+.ghost-btn:hover { background: var(--yellow); translate: 3px 3px; box-shadow: 3px 3px 0 var(--ink); }
+
+.chips { margin-top: 1.1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+.chips li {
+  font-size: .74rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem .8rem; border: 2px solid var(--cream); background: rgba(18, 18, 18, .6); transform: skewX(-10deg);
+}
+
+/* The table's edge, with the skater to play with. */
+.rink { position: relative; z-index: 2; height: clamp(160px, 22vh, 210px); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; }
+.rink::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 26px;
+  background: linear-gradient(#24130a, #150a04); border-top: 3px solid var(--ink);
+  box-shadow: inset 0 3px 0 rgba(255, 220, 170, .14);
+}
+.rink__canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+.rink__score, .rink__hint { position: absolute; top: 0; z-index: 2; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+.rink__score { left: 1rem; display: flex; gap: .4rem; }
+.rink__score span { background: var(--ink); padding: .3rem .7rem; transform: skewX(-10deg); }
+.rink__score b { color: var(--yellow); font-weight: 400; }
+.rink__hint { right: 1rem; max-width: 46ch; text-align: right; text-shadow: 1px 1px 0 var(--ink), 0 0 6px rgba(0, 0, 0, .6); }
+.rink__hint b { color: var(--yellow); font-weight: 400; }
+html:not(.js) .rink__score, html:not(.js) .rink__hint, .rink--still .rink__score, .rink--still .rink__hint { display: none; }
+.rink--still { cursor: default; }
+
+/* ---------- how it plays: the moves, on Rich's own hands ---------- */
+.moves { margin-top: 2.6rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.7rem; }
+.move:nth-child(odd) { rotate: -.7deg; }
+.move:nth-child(even) { rotate: .6deg; }
+.move__clip { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #1b120b; border-bottom: 3px solid var(--ink); }
+.move__text { padding: .85rem 1rem 1.05rem; }
+.move__text h3 { display: flex; justify-content: space-between; align-items: center; gap: .6rem; }
+.move__text p { margin-top: .45rem; font-size: .86rem; line-height: 1.5; }
+.pts { background: var(--ink); color: var(--yellow); font: 400 .72rem/1 var(--mono); letter-spacing: .08em; padding: .35em .7em; transform: skewX(-10deg); white-space: nowrap; }
+.move--more { display: flex; flex-direction: column; justify-content: space-between; }
+.move__sticker { display: block; width: 46%; margin: 1.1rem auto 0; rotate: -7deg; filter: drop-shadow(0 4px 3px rgba(0, 0, 0, .35)); }
+
+/* ---------- watch ---------- */
+.video { margin-top: 2.2rem; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink); rotate: -.4deg; }
+.video__poster, .video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.play {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  width: clamp(72px, 11vw, 112px); aspect-ratio: 1; border-radius: 50%;
+  background: var(--yellow); color: var(--ink); border: 3px solid var(--ink); box-shadow: var(--shadow);
+  display: grid; place-items: center; cursor: pointer; transition: scale .15s ease, background .15s ease;
+}
+.play svg { width: 46%; margin-left: 6%; }
+.play:hover { scale: 1.08; background: var(--cream); }
+.video__note { position: absolute; left: .8rem; bottom: .8rem; background: var(--ink); color: var(--cream); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; padding: .3rem .7rem; transform: skewX(-10deg); }
+.video.is-playing .video__poster, .video.is-playing .play, .video.is-playing .video__note { display: none; }
+
+/* ---------- three ways to skate: the game's menu cards ---------- */
+.menu { margin-top: 2.4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding-inline: .8rem; }
+.menu__card {
+  position: relative; overflow: hidden;
+  background: var(--cream); color: var(--ink);
+  border: 3px solid var(--ink); box-shadow: var(--shadow);
+  padding: 1.2rem 1.2rem 1.4rem; min-height: 13rem;
+  transform: skewX(-5deg);
+}
+.menu__card::after {          /* the halftone in the corner */
+  content: ""; position: absolute; right: 0; bottom: 0; width: 60%; height: 60%; pointer-events: none;
+  background: radial-gradient(circle, rgba(18, 18, 18, .22) 34%, transparent 36%) 0 0 / 9px 9px;
+  -webkit-mask-image: linear-gradient(to left top, #000, transparent 62%); mask-image: linear-gradient(to left top, #000, transparent 62%);
+}
+.menu__card > * { position: relative; z-index: 1; transform: skewX(5deg); }
+.menu__card h3 { font-size: 2rem; }
+.menu__card p { margin-top: .7rem; font-size: .88rem; line-height: 1.5; }
+.menu__card--yellow { background: var(--yellow); }
+.menu__card--red { background: var(--red); color: var(--cream); }
+.menu__card--more { grid-column: 1 / -1; min-height: 0; background: var(--teal); }      /* under the three, right across */
+.menu__card--more p { max-width: 60ch; font-size: .95rem; }
+.break { margin-top: 3rem; padding: 1.4rem 1.6rem 1.5rem; max-width: 62rem; rotate: -.5deg; }
+.break h3 { color: var(--yellow); font-size: 1.8rem; }
+.break p { margin-top: .6rem; font-size: .95rem; max-width: 70ch; }
+
+/* ---------- on your real table ---------- */
+.table__row { display: grid; grid-template-columns: 1fr 1.05fr; gap: 3rem; align-items: center; }
+.table__sizes-title { margin-top: 1.8rem; font: italic 600 1.15rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .05em; color: var(--yellow); text-shadow: 2px 2px 0 var(--ink); }
+.sizes { margin-top: .8rem; display: flex; flex-wrap: wrap; gap: .55rem; }
+.sizes li { background: var(--cream); color: var(--ink); border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); font-size: .8rem; padding: .32rem .75rem; }
+.table__pics { position: relative; aspect-ratio: 10 / 9; }
+.pic { position: absolute; display: block; width: 80%; background: var(--ink); }
+.pic--a { top: 0; right: 0; rotate: 2deg; }
+.pic--b { left: 0; bottom: 0; rotate: -3deg; }
+.table__sticker { position: absolute; left: 2%; top: 3%; width: 24%; rotate: -12deg; filter: drop-shadow(0 4px 3px rgba(0, 0, 0, .45)); }
+
+/* ---------- screenshots ---------- */
+.shots { padding-bottom: clamp(2rem, 5vw, 4rem); }
+.shots__strip { display: flex; gap: 1.4rem; overflow-x: auto; padding: 1.2rem 1.5rem 2.2rem; scroll-snap-type: x mandatory; scrollbar-color: var(--yellow) rgba(0, 0, 0, .35); }
+.shots__strip li { flex: 0 0 min(80vw, 540px); scroll-snap-align: center; }
+.shots__strip li:nth-child(odd) { rotate: -.6deg; }
+.shots__strip li:nth-child(even) { rotate: .7deg; }
+.shots__strip button { display: block; width: 100%; padding: 0; background: var(--ink); border: 3px solid var(--ink); box-shadow: var(--shadow); cursor: zoom-in; transition: translate .12s ease, box-shadow .12s ease; }
+.shots__strip button:hover { translate: 3px 3px; box-shadow: 3px 3px 0 var(--ink); }
+.shots__strip img { display: block; width: 100%; }
+
+/* ---------- final call ---------- */
+.finale__inner { position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.finale h2 { max-width: none; font-size: clamp(2.8rem, 9vw, 6rem); }
+.finale .lede { margin-bottom: 1.8rem; }
+.finale .store-btn { margin-bottom: 1rem; }
+.finale__sticker { position: absolute; width: clamp(90px, 13vw, 170px); filter: drop-shadow(0 4px 3px rgba(0, 0, 0, .45)); }
+.finale__sticker--a { left: 0; top: -1rem; rotate: -14deg; }
+.finale__sticker--b { right: 0; top: 2.5rem; rotate: 11deg; }
+
+/* ---------- footer, the sound switch, the lightbox ---------- */
+.footer { background: rgba(14, 9, 5, .9); border-top: 3px solid var(--ink); padding: 2.2rem 0 2.6rem; }
+.footer__inner { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 2rem; }
+.footer__logo img { display: block; width: 130px; }
+.footer__nav { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; font-size: .84rem; }
+.footer__nav a { text-underline-offset: 3px; }
+.footer__nav a:hover { color: var(--yellow); }
+.footer__legal { flex: 1 1 100%; font-size: .72rem; opacity: .75; }
+
+.sound { position: absolute; right: 1rem; bottom: 38px; z-index: 3; background: var(--ink); color: var(--cream); border: 2px solid var(--cream); font: 400 .72rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: .55rem .8rem; transform: skewX(-10deg); cursor: pointer; }
+.sound b { color: var(--yellow); font-weight: 400; }
+.sound[aria-pressed="true"] { background: var(--yellow); color: var(--ink); border-color: var(--ink); }
+.sound[aria-pressed="true"] b { color: var(--ink); }
+
+.lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; overflow: visible; }
+.lightbox::backdrop { background: rgba(10, 6, 3, .92); }
+.lightbox img { display: block; max-width: 96vw; max-height: 90vh; border: 3px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); }
+.lightbox button { position: absolute; background: var(--yellow); color: var(--ink); border: 3px solid var(--ink); width: 2.8rem; height: 2.8rem; font: 700 1.6rem/1 var(--display); cursor: pointer; }
+.lightbox__close { right: -.6rem; top: -.6rem; }
+.lightbox__prev { left: -.6rem; top: 50%; translate: 0 -50%; }
+.lightbox__next { right: -.6rem; top: 50%; translate: 0 -50%; }
+
+/* ---------- the privacy policy: one long cream card on the wood ---------- */
+.doc-head { padding: 1.6rem 0 0; }
+.doc-head__logo img { display: block; width: 170px; }
+.doc { margin: 1.6rem auto 4rem; max-width: 52rem; background: var(--cream); color: var(--ink); border: 3px solid var(--ink); box-shadow: var(--shadow); padding: clamp(1.4rem, 4vw, 3rem); font-size: .9rem; }
+.doc h1 { font: italic 700 clamp(2rem, 5vw, 3rem)/1.05 var(--display); text-transform: uppercase; }
+.doc h2 { font-size: 1.5rem; color: var(--ink); text-shadow: none; max-width: none; margin-top: 2.2rem; }
+.doc h3 { font-size: 1.1rem; margin-top: 1.5rem; }
+.doc p, .doc ul, .doc ol { margin-top: .8rem; }
+.doc ul, .doc ol { padding-left: 1.3rem; }
+.doc ul { list-style: disc; }
+.doc ol { list-style: decimal; }
+.doc li + li { margin-top: .4rem; }
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 960px) {
+  .moves { grid-template-columns: repeat(2, 1fr); }
+  .table__row { grid-template-columns: 1fr; gap: 2.4rem; }
+}
+@media (max-width: 700px) {
+  .menu { grid-template-columns: 1fr; padding-inline: .6rem; }
+  .menu__card { min-height: 0; }
+  .rink__hint { left: 1rem; top: 2rem; text-align: left; font-size: .68rem; }
+  .finale__sticker { opacity: .9; top: auto; bottom: -1.5rem; }
+  .finale__sticker--b { top: auto; bottom: -1rem; }
+}
+@media (max-width: 560px) {
+  .hero__content { padding-top: 1.3rem; padding-bottom: .8rem; }
+  .hero__title img { width: min(74vw, 44vh); }
+  .hero__sub { font-size: .92rem; margin-top: .8rem; max-width: 34ch; }
+  .cta-row { margin-top: 1rem; gap: .9rem 1.1rem; }
+  .ghost-btn { padding: .6rem 1rem; font-size: 1.05rem; }
+  .chips { margin-top: .9rem; gap: .35rem; }
+  .chips li { font-size: .62rem; padding: .25rem .5rem; letter-spacing: .06em; }
+  .rink { height: clamp(150px, 19vh, 190px); }
+  .moves { grid-template-columns: 1fr; }
+  .store-btn__big { font-size: 1.5rem; }
+}
+
+@media (hover: none) and (pointer: coarse) { .keys-only { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; translate: none; transition: none; }
+  .sticker.is-new { animation: none; }
+}

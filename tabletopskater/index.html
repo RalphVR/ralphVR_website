@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tabletop Skater | Turn any table into a skatepark</title>
+  <meta name="description" content="Tabletop Skater is a hands-only mixed reality skateboarding game for Meta Quest. Your fingers are the feet: ollie, kickflip and grind a tiny skater through a park on your real table.">
+  <meta name="theme-color" content="#3A2212">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Social cards. og:image / og:url must be absolute: they assume ralphvr.com/tabletopskater/ (README, Deploy). -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tabletop Skater">
+  <meta property="og:description" content="Turn any table into a skatepark. Your fingers are the feet: ollie, kickflip and grind in mixed reality.">
+  <meta property="og:url" content="https://ralphvr.com/tabletopskater/">
+  <meta property="og:image" content="https://ralphvr.com/tabletopskater/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/Oswald.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/img/wood.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/site.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="js/site.js" defer></script>
+  <script src="js/rink.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Tabletop Skater",
+    "description": "A hands-only mixed reality skateboarding game for Meta Quest. Your fingers are the feet: ollie, kickflip and grind a tiny skater through a park on your real table.",
+    "image": "https://ralphvr.com/tabletopskater/assets/img/og.jpg",
+    "url": "https://ralphvr.com/tabletopskater/",
+    "gamePlatform": "Meta Quest",
+    "genre": ["Sports", "Arcade", "Skateboarding"],
+    "playMode": "SinglePlayer"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#how">Skip to content</a>
+
+  <!-- ============================== HERO ============================== -->
+  <header class="hero" id="top">
+    <!-- Stickers on the table: site.js lays these out, slaps more down as tricks land, and one wherever the wood is tapped. -->
+    <div class="hero__stickers" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <h1 class="hero__title"><img src="assets/img/title.webp" alt="Tabletop Skater" width="1200" height="820" fetchpriority="high"></h1>
+      <p class="hero__tags"><span class="tag">Turn any table</span><span class="tag tag--red">into a skatepark</span></p>
+      <p class="hero__sub">Your fingers are the feet: ollie, kickflip and grind in mixed reality.</p>
+      <div class="cta-row">
+        <!-- STORE LINK: until the store page is live this is not a link (README, Before you publish). -->
+        <span class="store-btn store-btn--soon">
+          <span class="store-btn__small">Coming soon to</span>
+          <span class="store-btn__big">Meta Quest</span>
+        </span>
+        <a class="ghost-btn" href="#watch" data-play-video>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          Watch the demo
+        </a>
+      </div>
+      <ul class="chips" aria-label="At a glance">
+        <li>Hands only</li>
+        <li>Mixed reality</li>
+        <li>Sit or stand</li>
+      </ul>
+    </div>
+
+    <!-- The table's edge: a tiny skater to play with (site.js). Without scripts it's a plain edge. -->
+    <div class="rink">
+      <p class="rink__score" aria-live="off"><span class="rink__run">Run <b data-run>0</b></span><span class="rink__best">Best <b data-best>0</b></span></p>
+      <p class="rink__hint"><span class="keys-only"><b>Space</b> or </span><b>tap</b> to ollie. Again in the air: kickflip. Land on a rail: grind.</p>
+      <button class="sound" type="button" aria-pressed="false" hidden>Sound <b>off</b></button>
+      <canvas class="rink__canvas" role="img" aria-label="A tiny skater rides along the edge of the table, jumping cones and grinding rails"></canvas>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================== HOW IT PLAYS ============================== -->
+    <section class="section how" id="how">
+      <div class="wrap">
+        <p class="eyebrow reveal"><span class="tag">How it plays</span></p>
+        <h2 class="reveal">Your fingers are the feet.</h2>
+        <p class="lede reveal">Plant your index and middle fingers on the table, so there's a real surface to push against. Roll your back hand and raise your front to ollie, just like a real ollie. The controls grow from there.</p>
+
+        <ol class="moves">
+          <li class="move card reveal">
+            <video class="move__clip" muted loop playsinline preload="none" controls width="640" height="360" aria-label="Two hands on a table: the back fingers sweep toward the board's tail to push">
+              <source src="assets/video/move-push.mp4" type="video/mp4">
+            </video>
+            <div class="move__text">
+              <h3>Push <span class="pts">speed</span></h3>
+              <p>Sweep your back fingers toward the tail.</p>
+            </div>
+          </li>
+          <li class="move card reveal">
+            <video class="move__clip" muted loop playsinline preload="none" controls width="640" height="360" aria-label="The front fingers slide toward the board's edge to turn">
+              <source src="assets/video/move-turn.mp4" type="video/mp4">
+            </video>
+            <div class="move__text">
+              <h3>Turn <span class="pts">steer</span></h3>
+              <p>Front fingers toward an edge to turn. Both hands to carve.</p>
+            </div>
+          </li>
+          <li class="move card reveal">
+            <video class="move__clip" muted loop playsinline preload="none" controls width="640" height="360" aria-label="The back hand rolls onto its side and the front fingers lift: an ollie">
+              <source src="assets/video/move-ollie.mp4" type="video/mp4">
+            </video>
+            <div class="move__text">
+              <h3>Ollie <span class="pts">100</span></h3>
+              <p>Roll your back hand onto its side, then lift your front fingers.</p>
+            </div>
+          </li>
+          <li class="move card reveal">
+            <video class="move__clip" muted loop playsinline preload="none" controls width="640" height="360" aria-label="As the front fingers lift, the back fingers slide across the tail: a pop shove-it">
+              <source src="assets/video/move-shove-it.mp4" type="video/mp4">
+            </video>
+            <div class="move__text">
+              <h3>Pop shove-it <span class="pts">250</span></h3>
+              <p>As the front fingers lift, slide your back fingers across the tail.</p>
+            </div>
+          </li>
+          <li class="move card reveal">
+            <video class="move__clip" muted loop playsinline preload="none" controls width="640" height="360" aria-label="After the ollie the front fingers press down on the near side: a kickflip">
+              <source src="assets/video/move-kickflip.mp4" type="video/mp4">
+            </video>
+            <div class="move__text">
+              <h3>Kickflip <span class="pts">400</span></h3>
+              <p>Ollie, hold your front fingers up a beat, then press them down.</p>
+            </div>
+          </li>
+          <li class="move move--more card card--yellow reveal">
+            <img class="move__sticker" src="assets/img/st-fingers.webp" alt="" width="300" height="293" loading="lazy">
+            <div class="move__text">
+              <h3>And then</h3>
+              <p>Pinch the board in the air to grab. Spin your hands to spin. Land on a rail to grind. Every trick is designed to feel great to land.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================== WATCH ============================== -->
+    <section class="section watch" id="watch">
+      <div class="wrap">
+        <p class="eyebrow reveal"><span class="tag tag--red">See it</span></p>
+        <h2 class="reveal">A skatepark on your desk.</h2>
+        <p class="lede reveal">Tabletop Skater is the idea of fingerboarding and the game of skateboarding in miniature. In mixed reality, your real table becomes the park, and a tiny skater rides it under your hands.</p>
+
+        <!-- The demo video is on YouTube. Nothing loads from YouTube until Play is pressed (site.js swaps in the player).
+             To host a trailer file here instead: README, The video. -->
+        <div class="video card reveal" data-youtube="omjRyGcjM-M">
+          <img class="video__poster" src="assets/img/poster.webp" alt="Two hands pinch a small glowing skateboard above a table with a skatepark on it" width="1600" height="900" loading="lazy">
+          <button class="play" type="button" aria-label="Play the demo video (loads from YouTube)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          </button>
+          <p class="video__note">1 min 21 s. Plays from YouTube.</p>
+        </div>
+        <noscript><p class="lede"><a href="https://www.youtube.com/watch?v=omjRyGcjM-M">Watch the demo on YouTube</a></p></noscript>
+      </div>
+    </section>
+
+    <!-- ============================== MODES ============================== -->
+    <section class="section modes" id="modes">
+      <div class="wrap">
+        <p class="eyebrow reveal"><span class="tag">Three ways to skate</span></p>
+        <h2 class="reveal">Learn it. Cruise it. Score it.</h2>
+
+        <ul class="menu">
+            <li class="menu__card menu__card--yellow reveal">
+              <h3>Sessions</h3>
+              <p>Learn tricks one at a time, and how to score big. Earn stars, and stickers for your table.</p>
+            </li>
+            <li class="menu__card reveal">
+              <h3>Free Skate</h3>
+              <p>Ride as you like. Chill out, find lines and try tricks.</p>
+            </li>
+            <li class="menu__card menu__card--red reveal">
+              <h3>Score Run</h3>
+              <p>Two minutes, one chance. Climb the leaderboards, or send your run to a friend and see if they can top it.</p>
+            </li>
+            <li class="menu__card menu__card--more reveal">
+              <h3>More coming soon...</h3>
+              <p>Tabletop Skater launches in early access, with exciting new modes and features coming down the halfpipe.</p>
+            </li>
+        </ul>
+
+        <div class="break card card--ink reveal">
+          <h3>Made for a short break.</h3>
+          <p>Pick up and play for 5–10 minutes at work, at home or out and about. Skate a few runs, send a challenge and get back to your day. The game wraps around your time instead of taking it over.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== YOUR TABLE ============================== -->
+    <section class="section table" id="table">
+      <div class="wrap table__row">
+        <div class="table__text">
+          <p class="eyebrow reveal"><span class="tag tag--red">Mixed reality</span></p>
+          <h2 class="reveal">On your real table.</h2>
+          <p class="lede reveal">The game transforms your table into a skate park and remembers the spot for when you return. Decorate your table with the stickers you unlock for perfect sessions.</p>
+          <p class="table__sizes-title reveal">Multiple skate park sizes</p>
+          <ul class="sizes reveal" aria-label="Tables with a park">
+            <li>Small coffee table</li>
+            <li>Coffee table</li>
+            <li>Kitchen table</li>
+            <li>Office desk</li>
+            <li>Dining table</li>
+            <li>Large square table</li>
+          </ul>
+        </div>
+        <div class="table__pics">
+          <img class="pic pic--a card reveal" src="assets/img/shot-5-sm.webp" alt="Set-up: the table found, shown in blue, with a yellow extension past its real edge" width="800" height="450" loading="lazy">
+          <img class="pic pic--b card reveal" src="assets/img/shot-4-sm.webp" alt="A fingertip taps SESSIONS on the menu lying on the table" width="800" height="450" loading="lazy">
+          <img class="table__sticker" src="assets/img/st-shred.webp" alt="" width="272" height="307" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SCREENSHOTS ============================== -->
+    <section class="section shots" id="screenshots" aria-label="Screenshots">
+      <div class="wrap">
+        <p class="eyebrow reveal"><span class="tag">From the headset</span></p>
+      </div>
+      <ul class="shots__strip">
+        <li><button type="button" data-full="assets/img/shot-1.webp"><img src="assets/img/shot-1-sm.webp" alt="A kickflip landed for 540 points, both hands resting on the board's outline at the table's edge" width="800" height="450" loading="lazy"></button></li>
+        <li><button type="button" data-full="assets/img/shot-2.webp"><img src="assets/img/shot-2-sm.webp" alt="Both hands pinch the board as it flies above the table: a grab" width="800" height="450" loading="lazy"></button></li>
+        <li><button type="button" data-full="assets/img/shot-3.webp"><img src="assets/img/shot-3-sm.webp" alt="The whole park on a desk, a frontside pop shove-it melon called out for 600 points" width="800" height="450" loading="lazy"></button></li>
+        <li><button type="button" data-full="assets/img/shot-4.webp"><img src="assets/img/shot-4-sm.webp" alt="A fingertip taps SESSIONS on the menu lying on the table" width="800" height="450" loading="lazy"></button></li>
+      </ul>
+    </section>
+
+    <!-- ============================== FINAL CTA ============================== -->
+    <section class="section finale" id="get">
+      <div class="wrap finale__inner">
+        <img class="finale__sticker finale__sticker--a" src="assets/img/st-kickflip-club.webp" alt="" width="300" height="300" loading="lazy">
+        <img class="finale__sticker finale__sticker--b" src="assets/img/st-new-trick.webp" alt="" width="300" height="281" loading="lazy">
+        <h2 class="reveal">Clear your desk.</h2>
+        <p class="lede reveal">Tabletop Skater is coming soon to the Meta Horizon Store, for Meta Quest 3 and 3S.</p>
+        <span class="store-btn store-btn--soon reveal">
+          <span class="store-btn__small">Coming soon to</span>
+          <span class="store-btn__big">Meta Quest</span>
+        </span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="footer__logo" href="#top"><img src="assets/img/title.webp" alt="Tabletop Skater" width="1200" height="820" loading="lazy"></a>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="privacy-policy/">Privacy policy</a>
+        <a href="../flowwave/">Flow Wave</a>
+        <a href="../musichi/">Musichi</a>
+      </nav>
+      <p class="footer__legal">&copy; VRTogether. Meta and Meta Quest are trademarks of Meta Platforms, Inc.</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Screenshot">
+    <img alt="">
+    <button class="lightbox__nav lightbox__prev" type="button" aria-label="Previous screenshot">&lsaquo;</button>
+    <button class="lightbox__nav lightbox__next" type="button" aria-label="Next screenshot">&rsaquo;</button>
+    <button class="lightbox__close" type="button" aria-label="Close">&times;</button>
+  </dialog>
+</body>
+</html>
